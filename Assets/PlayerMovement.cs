@@ -97,6 +97,16 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(-maxV, rb.velocity.y);
         }
 
+        //Flip Side when turn
+        float horizontalInput = Input.GetAxis("Horizontal");
+        if(horizontalInput > 0.01f)
+        {
+            transform.localScale = Vector3.one;
+        }
+        else if(horizontalInput < -0.01f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     private bool IsGrounded()
